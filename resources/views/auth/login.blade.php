@@ -83,14 +83,14 @@
             </div>
 
             <!-- Konten Tengah & Bawah Panel Kiri -->
-            <div class="relative z-10 my-auto py-8">
-                <span class="text-xs font-bold text-[#26B1EB] uppercase tracking-wider block mb-1">
+            <div class="relative z-10 my-auto py-8 pr-8 md:pr-14">
+                <span class="text-xs font-bold text-[#26B1EB] uppercase tracking-wider block mb-1.5">
                     PORTAL SENSOR MANDIRI
                 </span>
-                <h2 class="text-2xl lg:text-3xl font-extrabold tracking-tight text-white leading-tight">
-                    Budaya Sensor Mandiri.
+                <h2 class="text-xl lg:text-2xl font-black tracking-tight text-white leading-snug max-w-[220px]">
+                    Budaya Sensor<br>Mandiri.
                 </h2>
-                <p class="text-xs text-slate-200 mt-2.5 leading-relaxed max-w-xs font-medium">
+                <p class="text-xs text-slate-200 mt-2.5 leading-relaxed max-w-[210px] font-medium">
                     Memilah Memilih tontonan sesuai klasifikasi usia
                 </p>
             </div>
