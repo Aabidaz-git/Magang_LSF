@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    
+    /* Primary Colors */
+    --color-lsf-navy: #003F85;
+    --color-lsf-navy-dark: #002754;
+    --color-lsf-navy-hover: #00336D;
+    --color-lsf-sky: #26B1EB;
+    --color-lsf-cerulean: #009CDD;
+    --color-lsf-charcoal: #2C2C33;
+    --color-lsf-border: #C1CDD4;
+
+    /* Secondary & Ratings */
+    --color-lsf-purple: #5744C1;
+    --color-lsf-magenta: #701C85;
+    --color-lsf-indigo: #4B2979;
+
+    /* Semantic & Official LSF Rating Badges */
+    --color-rating-su: #1899A3;
+    --color-rating-13: #DC7634;
+    --color-rating-17: #C8282E;
+    --color-rating-21: #4B2979;
+    --color-semantic-info: #1F6BB3;
+    --color-semantic-coral: #E86461;
+}
+
+:root {
+    --bg-app: #F5F7FA;
+    --bg-surface: #FFFFFF;
+    --text-primary: #2C2C33;
+    --border-color: #C1CDD4;
+}
+
+body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'tnum';
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Rating Pill styles */
+.pill-su { background-color: #1899A3; color: white; }
+.pill-13 { background-color: #DC7634; color: white; }
+.pill-17 { background-color: #C8282E; color: white; }
+.pill-21 { background-color: #4B2979; color: white; }
+
+/* Donut Chart Conic Gradient */
+.conic-distribution {
+    background: conic-gradient(
+        #1899A3 0% 38.5%,
+        #DC7634 38.5% 70.5%,
+        #C8282E 70.5% 94.6%,
+        #4B2979 94.6% 100%
+    );
+}
+
+.conic-efficiency {
+    background: conic-gradient(
+        #003F85 0% 91.7%,
+        #E2E8F0 91.7% 100%
+    );
+}
