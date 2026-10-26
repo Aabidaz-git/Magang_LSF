@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klasifikasi Video — LSF</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo-badge">
+    <img src="Logo LSF.png" alt="Logo Lembaga Sensor Film">
+  </div>
+  <div class="brand-text">
+    <span class="agency">LEMBAGA SENSOR FILM · REPUBLIK INDONESIA</span>
+    <h1>Klasifikasi Adegan Video</h1>
+    <p>Unggah video, jalankan job klasifikasi backend, lalu unduh report JSON yang tersimpan di server.</p>
+  </div>
+  <div class="topbar-right">
+    <span class="pill su">SU</span>
+    <span class="pill warn">13+</span>
+    <span class="pill age17">17+</span>
+    <span class="pill age21">21+</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <a class="nav-item" href="homepage.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+      Home <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="nav-item active" href="klasifikasi.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M9 21h6"/></svg>
+      Klasifikasi Video <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="nav-item" href="riwayat.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l4 2"/></svg>
+      Riwayat Analisis <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="nav-item" href="laporan.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>
+      Laporan <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+  </nav>
+
+  <main class="content single">
+
+    <!-- Judul dashboard -->
+    <div class="dash-head">
+      <h1 class="dash-title">LSF Data Dashboard</h1>
+      <p class="dash-sub">Data Jumlah Klasifikasi Usia</p>
+    </div>
+
+    <!-- Kartu statistik -->
+    <div class="stat-cards">
+
+      <!-- Donut distribusi -->
+      <div class="card stat-card dist-card">
+        <p class="dist-title">Distribusi Klasifikasi Usia</p>
+        <div class="dist-ring">
+          <div class="center"><b>100%</b><small>Total Data</small></div>
+        </div>
+        <div class="dist-legend">
+          <span><i class="dot" style="background:var(--green)"></i>SU</span>
+          <span><i class="dot" style="background:var(--yellow)"></i>13+</span>
+          <span><i class="dot" style="background:var(--red)"></i>17+</span>
+          <span><i class="dot" style="background:var(--black)"></i>21+</span>
+        </div>
+      </div>
+
+      <div class="card stat-card">
+        <div class="stat-head">
+          <span class="badge badge-su">SU</span>
+          <span>Semua Umur (SU)</span>
+        </div>
+        <div class="stat-num">38.5 %</div>
+        <div class="stat-range">2020 - 2025</div>
+      </div>
+
+      <div class="card stat-card">
+        <div class="stat-head">
+          <span class="badge badge-13">13+</span>
+          <span>Remaja 13 Tahun (R13)</span>
+        </div>
+        <div class="stat-num">32 %</div>
+        <div class="stat-range">2020 - 2025</div>
+      </div>
+
+      <div class="card stat-card">
+        <div class="stat-head">
+          <span class="badge badge-17">17+</span>
+          <span>Dewasa 17 Tahun (D17)</span>
+        </div>
+        <div class="stat-num">24.1 %</div>
+        <div class="stat-range">2020 - 2025</div>
+      </div>
+
+      <div class="card stat-card">
+        <div class="stat-head">
+          <span class="badge badge-21">21+</span>
+          <span>Dewasa 21 Tahun (D21)</span>
+        </div>
+        <div class="stat-num">5.4 %</div>
+        <div class="stat-range">2020 - 2025</div>
+      </div>
+    </div>
+
+    <!-- Tabel rekapitulasi -->
+    <div class="card">
+      <div class="table-head">
+        <div>
+          <h2>Tabel Rekapitulasi Sensor Film</h2>
+          <p class="table-sub">Data resmi Surat Tanda Lulus Sensor (STLS) diterbitkan</p>
+        </div>
+        <div class="table-actions">
+          <button class="btn-outline" type="button" id="btnUnduh">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 11v6"/><path d="M9 14l3 3 3-3"/></svg>
+            Unduh Excel / CSV
+          </button>
+          <button class="btn-outline" type="button" id="btnCetak">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Cetak
+          </button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="rekap">
+          <thead>
+            <tr>
+              <th class="num">NO</th>
+              <th>KATEGORI USIA</th>
+              <th>TARGET PENONTON</th>
+              <th class="right">JUMLAH<br>JUDUL FILM</th>
+              <th class="right">PERSENTASE<br>(%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">1</td>
+              <td><div class="kategori"><span class="mini-badge mini-su">SU</span><span class="kategori-name">Semua Umur</span></div></td>
+              <td class="target">Dapat ditonton oleh semua kalangan usia penonton</td>
+              <td class="right jumlah">1,420 Film</td>
+              <td class="right pct pct-su">38.5%</td>
+            </tr>
+            <tr>
+              <td class="num">2</td>
+              <td><div class="kategori"><span class="mini-badge mini-13">13+</span><span class="kategori-name">Remaja (13 Tahun Ke Atas)</span></div></td>
+              <td class="target">Penonton berusia 13 tahun ke atas dengan bimbingan</td>
+              <td class="right jumlah">1,180 Film</td>
+              <td class="right pct pct-13">32.0%</td>
+            </tr>
+            <tr>
+              <td class="num">3</td>
+              <td><div class="kategori"><span class="mini-badge mini-17">17+</span><span class="kategori-name">Dewasa (17 Tahun Ke Atas)</span></div></td>
+              <td class="target">Penonton berusia 17 tahun ke atas (KTP aktif)</td>
+              <td class="right jumlah">890 Film</td>
+              <td class="right pct pct-17">24.1%</td>
+            </tr>
+            <tr>
+              <td class="num">4</td>
+              <td><div class="kategori"><span class="mini-badge mini-21">21+</span><span class="kategori-name">Khusus Dewasa (21 Tahun Ke Atas)</span></div></td>
+              <td class="target">Materi khusus dewasa tanpa unsur yang dilarang undang-undang</td>
+              <td class="right jumlah">200 Film</td>
+              <td class="right pct pct-21">5.4%</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">TOTAL KESELURUHAN KLASIFIKASI</td>
+              <td class="right">3,690 Film</td>
+              <td class="right">100.0%</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  // Toast (sama seperti homepage)
+  function showToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(showToast._timer);
+    showToast._timer = setTimeout(()=> t.classList.remove('show'), 2600);
+  }
+
+  // Menu yang halamannya belum dibuat
+  document.querySelectorAll('.nav-item[href="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('Halaman "' + link.textContent.trim() + '" belum dibuat');
+    });
+  });
+
+  // Unduh tabel sebagai CSV (bisa dibuka di Excel)
+  document.getElementById('btnUnduh').addEventListener('click', () => {
+    const rows = document.querySelectorAll('table.rekap tr');
+    const csv = Array.from(rows).map(tr =>
+      Array.from(tr.children).map(cell => {
+        const nama = cell.querySelector('.kategori-name');
+        const teks = (nama ? nama.textContent : cell.textContent).replace(/\s+/g, ' ').trim();
+        return '"' + teks.replace(/"/g, '""') + '"';
+      }).join(',')
+    ).join('\n');
+
+    const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'rekap-sensor-film.csv';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    showToast('File rekap-sensor-film.csv diunduh');
+  });
+
+  // Cetak halaman
+  document.getElementById('btnCetak').addEventListener('click', () => window.print());
+</script>
+
+</body>
+</html>

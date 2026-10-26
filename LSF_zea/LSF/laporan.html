@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laporan Klasifikasi Video — LSF</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo-badge">
+    <img src="Logo LSF.png" alt="Logo Lembaga Sensor Film">
+  </div>
+  <div class="brand-text">
+    <span class="agency">LEMBAGA SENSOR FILM · REPUBLIK INDONESIA</span>
+    <h1>Laporan Klasifikasi Video</h1>
+    <p>Unggah video, jalankan job klasifikasi backend, lalu unduh report JSON yang tersimpan di server.</p>
+  </div>
+  <div class="topbar-right">
+    <span class="pill su">SU</span>
+    <span class="pill warn">13+</span>
+    <span class="pill age17">17+</span>
+    <span class="pill age21">21+</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <a class="nav-item" href="homepage.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+      Home <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="nav-item" href="klasifikasi.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M9 21h6"/></svg>
+      Klasifikasi Video <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="nav-item" href="riwayat.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l4 2"/></svg>
+      Riwayat Analisis <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="nav-item active" href="laporan.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>
+      Laporan <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+  </nav>
+
+  <main class="content single">
+
+    <div class="card">
+      <h2>
+        <span class="ico-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg></span>
+        Ringkasan Laporan
+        <a class="link-all" href="ringkasan-laporan.html">Lihat Detail</a>
+      </h2>
+      <hr class="divider">
+
+      <!-- Empat kartu ringkasan -->
+      <div class="laporan-tiles">
+        <div class="tile tile-total">
+          <div class="tile-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <div class="tile-body">
+            <div class="tile-label">Total</div>
+            <div class="tile-num">1.248</div>
+            <div class="tile-trend"><b>↑12%</b> dari bulan sebelumnya</div>
+          </div>
+        </div>
+
+        <div class="tile tile-wide">
+          <div class="tile-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+          </div>
+          <div class="tile-body">
+            <div class="tile-label">Layar Lebar</div>
+            <div class="tile-num">1.248</div>
+            <div class="tile-trend"><b>↑12%</b> dari bulan sebelumnya</div>
+          </div>
+        </div>
+
+        <div class="tile tile-tv">
+          <div class="tile-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M17 2l-5 5-5-5"/></svg>
+          </div>
+          <div class="tile-body">
+            <div class="tile-label">Televisi</div>
+            <div class="tile-num">1.248</div>
+            <div class="tile-trend"><b>↑12%</b> dari bulan sebelumnya</div>
+          </div>
+        </div>
+
+        <div class="tile tile-jti">
+          <div class="tile-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a14 14 0 0 1 20 0"/><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/></svg>
+          </div>
+          <div class="tile-body">
+            <div class="tile-label">JTI</div>
+            <div class="tile-num">1.248</div>
+            <div class="tile-trend"><b>↑12%</b> dari bulan sebelumnya</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="divider divider-gap">
+
+      <!-- Dua panel grafik -->
+      <div class="chart-row">
+
+        <!-- Bar chart: klasifikasi usia -->
+        <div class="panel">
+          <h3 class="panel-title">
+            <span class="ico-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M21 19a4.5 4.5 0 0 0-5-4"/></svg></span>
+            Klasifikasi Usia
+          </h3>
+          <div class="bar-chart">
+            <div class="bar-y">
+              <span>250</span><span>200</span><span>150</span><span>100</span><span>50</span><span>0</span>
+            </div>
+            <!-- Tinggi bar = --v dibagi 250. Ubah angka --v dan teks .bar-val untuk ganti data -->
+            <div class="bar-col">
+              <div class="bar-area"><span class="bar-val">157</span><div class="bar bar-su" style="--v:157"></div></div>
+              <span class="bar-lbl">SU</span>
+            </div>
+            <div class="bar-col">
+              <div class="bar-area"><span class="bar-val">212</span><div class="bar bar-13" style="--v:212"></div></div>
+              <span class="bar-lbl">13+</span>
+            </div>
+            <div class="bar-col">
+              <div class="bar-area"><span class="bar-val">97</span><div class="bar bar-17" style="--v:97"></div></div>
+              <span class="bar-lbl">17+</span>
+            </div>
+            <div class="bar-col">
+              <div class="bar-area"><span class="bar-val">43</span><div class="bar bar-21" style="--v:43"></div></div>
+              <span class="bar-lbl">21+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donut: genre -->
+        <div class="panel">
+          <h3 class="panel-title">
+            <span class="ico-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h6"/></svg></span>
+            Genre
+          </h3>
+          <div class="genre-wrap">
+            <div class="genre-ring" id="genreRing">
+              <div class="center"><b>100%</b><small>Total Data</small></div>
+            </div>
+            <ul class="genre-legend" id="genreLegend"></ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  function showToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(showToast._timer);
+    showToast._timer = setTimeout(()=> t.classList.remove('show'), 2600);
+  }
+
+  // Menu yang halamannya belum dibuat
+  document.querySelectorAll('.nav-item[href="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('Halaman "' + link.textContent.trim() + '" belum dibuat');
+    });
+  });
+
+  // Data genre. Ubah di sini, donut dan legenda ikut berubah.
+  const genre = [
+    { nama: 'Horror',    persen: 12, warna: 'var(--lime)'   },
+    { nama: 'Comedy',    persen: 39, warna: 'var(--red)'    },
+    { nama: 'Romance',   persen: 44, warna: 'var(--yellow)' },
+    { nama: 'Action',    persen: 3,  warna: 'var(--black)'  },
+    { nama: 'Lain - Lain', persen: 18, warna: 'var(--indigo)' }
+  ];
+
+  // Donut dihitung dari porsi tiap genre terhadap jumlah semuanya
+  const jumlah = genre.reduce((a, g) => a + g.persen, 0);
+  let awal = 0;
+  const potongan = genre.map(g => {
+    const akhir = awal + (g.persen / jumlah) * 100;
+    const s = g.warna + ' ' + awal + '% ' + akhir + '%';
+    awal = akhir;
+    return s;
+  });
+  document.getElementById('genreRing').style.background = 'conic-gradient(' + potongan.join(',') + ')';
+  document.getElementById('genreLegend').innerHTML = genre.map(g =>
+    '<li><i class="dot" style="background:' + g.warna + '"></i>' + g.nama + ' (' + g.persen + '%)</li>'
+  ).join('');
+</script>
+
+</body>
+</html>

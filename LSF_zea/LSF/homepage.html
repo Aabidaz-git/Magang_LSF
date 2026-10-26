@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klasifikasi Adegan Video — LSF</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo-badge">
+    <img src="Logo LSF.png" alt="Deskripsi Logo">
+  </div>
+  <div class="brand-text">
+    <span class="agency">LEMBAGA SENSOR FILM · REPUBLIK INDONESIA</span>
+    <h1>Klasifikasi Adegan Video</h1>
+    <p>Unggah video, jalankan job klasifikasi backend, lalu unduh report JSON yang tersimpan di server.</p>
+  </div>
+  <div class="topbar-right">
+    <span class="pill su">SU</span>
+    <span class="pill warn">13+</span>
+    <span class="pill age17">17+</span>
+    <span class="pill age21">21+</span>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <a class="nav-item active" href="homepage.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>
+      Home <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="nav-item" href="klasifikasi.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M9 21h6"/></svg>
+      Klasifikasi Video <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="nav-item" href="riwayat.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l4 2"/></svg>
+      Riwayat Analisis <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+    <a class="nav-item" href="laporan.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>
+      Laporan <svg class="chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </a>
+
+  </nav>
+
+  <main class="content">
+    <div class="col">
+      <!-- Upload -->
+      <div class="card">
+        <div class="upload-zone" id="uploadZone">
+          <div class="cloud-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4"/><path d="M7 9l5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+          </div>
+          <button class="btn-primary" id="uploadBtn" type="button">Unggah Video</button>
+          <input type="file" id="fileInput" accept="video/*">
+          <p class="hint">File besar otomatis diunggah per chunk, lalu server<br>menatakan file dan membuat report JSON.</p>
+        </div>
+      </div>
+
+      <!-- Laporan Adegan -->
+      <div class="card">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>
+          Laporan Adegan
+        </h2>
+        <div class="stats-row">
+          <div class="stat-box"><div class="label">Rating</div><div class="value">13+</div></div>
+          <div class="stat-box"><div class="label">Adegan</div><div class="value">1</div></div>
+          <div class="stat-box risk"><div class="label">High Risk</div><div class="value">0</div></div>
+        </div>
+        <div class="notice">Analisis vision selesai. Tetap gunakan sebagai draf bantuan untuk peninjau manusia.</div>
+        <table class="laporan">
+          <thead>
+            <tr><th>Waktu</th><th>Adegan</th><th>Tag</th><th>Tingkat</th><th>Bukti</th><th>Catatan Peninjauan</th></tr>
+          </thead>
+          <tbody id="laporanBody">
+            <tr>
+              <td>00:10</td>
+              <td>Sebuah layar digital menampilkan foto grup dari sekelompok remaja perempuan yang sedang berpose di dalam ruangan, dengan beberapa orang mengenakan hijab.</td>
+              <td><span class="tag-chip">Dialog</span></td>
+              <td><span class="level-chip">Rendah</span></td>
+              <td>Frame 1 pada 0:00, Frame 2 pada 0:05, Frame 3 pada 0:07</td>
+              <td>Konten visual menampilkan foto & video grup remaja yang sedang berpose. Tidak terlihat konten berbahaya seperti kekerasan.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="rekom">
+          <h3>Catatan akurasi &amp; rekomendasi peninjau</h3>
+          <p>Sebuah layar digital menampilkan foto grup sekelompok remaja perempuan yang sedang berpose di dalam ruangan, dengan beberapa orang mengenakan hijab.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <!-- Metadata -->
+      <div class="card">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M9 21h6"/></svg>
+          Metadata Video
+        </h2>
+        <div class="meta-row">
+          <div class="meta-thumb">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="meta-info">
+            <h3 id="metaTitle">Pengabdian Setan 2</h3>
+            <span class="status-chip" id="metaStatus">Video selesai diproses</span>
+            <div class="meta-facts">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span id="metaFormat">MP4</span></span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><span id="metaSize">27.5mb</span></span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span id="metaDur">02:10</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Proses -->
+      <div class="card">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>
+          Proses
+        </h2>
+        <div class="proses-top">
+          <div class="proses-ring" id="prosesRing" style="--pct:90"><span id="prosesPct">90%</span></div>
+          <div class="proses-desc" id="prosesDesc">Video sedang dianalisis oleh sistem…</div>
+        </div>
+        <div class="steps-row" id="stepsRow">
+          <span class="step-chip done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Validasi File Selesai</span>
+          <span class="step-chip active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Klasifikasi Adegan Selesai</span>
+          <span class="step-chip pending"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>Generate Hasil in progress…</span>
+        </div>
+      </div>
+
+      <!-- Ringkasan Klasifikasi -->
+      <div class="card">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg>
+          Ringkasan Klasifikasi
+        </h2>
+        <div class="ringkasan-box">
+          <div class="tri-badge">
+            <svg viewBox="0 0 100 90"><polygon points="50,5 95,85 5,85" fill="#f7cd2e" stroke="#3b2f00" stroke-width="4" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="ringkasan-list">
+            <h3 id="ringkasanTitle">Rincian Klasifikasi</h3>
+            <ul id="ringkasanTags">
+              <li>Horor</li>
+              <li>Kekerasan</li>
+              <li>Mencekam</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Riwayat -->
+      <div class="card">
+        <h2>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l4 2"/></svg>
+          Riwayat Analisis Terkini
+          <a class="link-all" href="riwayat.html">Lihat Semua</a>
+        </h2>
+        <div id="riwayatList">
+          <div class="riwayat-item">
+            <div class="riwayat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M9 21h6"/></svg>
+            </div>
+            <div class="riwayat-body">
+              <p class="name">WhatsApp_Vic</p>
+              <p class="meta">27/07/26, 15:02 · 1.1 MB · multipart</p>
+            </div>
+            <div class="riwayat-right">
+              <span class="status-complete">complete</span>
+              <button class="btn-mini">Buka hasil</button>
+            </div>
+          </div>
+          <div class="riwayat-item">
+            <div class="riwayat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M9 21h6"/></svg>
+            </div>
+            <div class="riwayat-body">
+              <p class="name">Teaser_KKN_l</p>
+              <p class="meta">27/07/26, 14:30 · 48.2 MB · single</p>
+            </div>
+            <div class="riwayat-right">
+              <span class="status-complete">complete</span>
+              <button class="btn-mini">Buka hasil</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+  // Menu yang halamannya belum dibuat
+  document.querySelectorAll('.nav-item[href="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      showToast('Halaman "' + link.textContent.trim() + '" belum dibuat');
+    });
+  });
+
+  function showToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(showToast._timer);
+    showToast._timer = setTimeout(()=> t.classList.remove('show'), 2600);
+  }
+
+  // Upload interaction
+  const uploadZone = document.getElementById('uploadZone');
+  const uploadBtn = document.getElementById('uploadBtn');
+  const fileInput = document.getElementById('fileInput');
+
+  uploadBtn.addEventListener('click', (e) => { e.stopPropagation(); fileInput.click(); });
+  uploadZone.addEventListener('click', () => fileInput.click());
+  uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.style.borderColor = 'var(--blue-mid)'; });
+  uploadZone.addEventListener('dragleave', () => { uploadZone.style.borderColor = '#c9d8ea'; });
+  uploadZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadZone.style.borderColor = '#c9d8ea';
+    if(e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+  });
+  fileInput.addEventListener('change', () => {
+    if(fileInput.files.length) handleFile(fileInput.files[0]);
+  });
+
+  function handleFile(file){
+    // Update metadata card
+    const sizeMb = (file.size / (1024*1024)).toFixed(1);
+    document.getElementById('metaTitle').textContent = file.name.replace(/\.[^/.]+$/, "");
+    document.getElementById('metaFormat').textContent = (file.type.split('/')[1] || 'MP4').toUpperCase();
+    document.getElementById('metaSize').textContent = sizeMb + 'mb';
+    document.getElementById('metaStatus').textContent = 'Mengunggah…';
+
+    showToast('Mengunggah "' + file.name + '"…');
+    runProgress();
+  }
+
+  function runProgress(){
+    const ring = document.getElementById('prosesRing');
+    const pctLabel = document.getElementById('prosesPct');
+    const desc = document.getElementById('prosesDesc');
+    const steps = document.querySelectorAll('#stepsRow .step-chip');
+
+    desc.textContent = 'Mengunggah file ke server…';
+    steps[0].className = 'step-chip active';
+    steps[1].className = 'step-chip pending';
+    steps[2].className = 'step-chip pending';
+
+    let pct = 0;
+    clearInterval(runProgress._timer);
+    runProgress._timer = setInterval(() => {
+      pct += Math.random() * 9 + 3;
+      if(pct >= 100){
+        pct = 100;
+        clearInterval(runProgress._timer);
+        finishProcessing();
+      }
+      ring.style.setProperty('--pct', Math.round(pct));
+      pctLabel.textContent = Math.round(pct) + '%';
+
+      if(pct > 30 && pct < 95){
+        desc.textContent = 'Video sedang dianalisis oleh sistem…';
+        steps[0].className = 'step-chip done';
+        steps[1].className = 'step-chip active';
+      }
+    }, 220);
+  }
+
+  function finishProcessing(){
+    const desc = document.getElementById('prosesDesc');
+    const steps = document.querySelectorAll('#stepsRow .step-chip');
+    desc.textContent = 'Klasifikasi selesai. Report JSON tersimpan di server.';
+    steps[0].className = 'step-chip done';
+    steps[1].className = 'step-chip done';
+    steps[2].className = 'step-chip done';
+    steps[2].innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Generate Hasil Selesai';
+    document.getElementById('metaStatus').textContent = 'Video selesai diproses';
+    showToast('Klasifikasi selesai — laporan siap ditinjau');
+  }
+</script>
+
+</body>
+</html>
