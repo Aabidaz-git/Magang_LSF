@@ -60,9 +60,12 @@
                     <span class="text-xs font-bold text-[#2C2C33] block">Dra. Ratna Kusuma</span>
                     <span class="text-[11px] text-slate-500 block">Subkomisi Penilai</span>
                 </div>
-                <a href="{{ route('login') }}" title="Ganti Akun / Logout" class="text-slate-400 hover:text-[#C8282E] p-1.5 rounded-lg hover:bg-slate-100 transition-colors">
+                <button type="button" onclick="triggerLogout()" title="Keluar / Logout" class="text-slate-400 hover:text-[#C8282E] p-1.5 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
                     <i data-lucide="log-out" class="w-4 h-4"></i>
-                </a>
+                </button>
+                <form id="logoutForm" action="{{ route('logout') }}" method="POST" class="hidden">
+                    @csrf
+                </form>
             </div>
         </div>
     </header>
@@ -149,8 +152,50 @@
         </main>
     </div>
 
-    <!-- Backdrop overlay for mobile menu -->
-    <div id="sidebarBackdrop" class="fixed inset-0 bg-slate-900/40 z-20 hidden lg:hidden"></div>
+    <!-- ======================================================== -->
+    <!-- LOADING SCREEN OVERLAY LOGOUT: MAMA CULA POINTING / DADAH -->
+    <!-- ======================================================== -->
+    <div id="logoutOverlay" class="fixed inset-0 bg-[#002754]/90 backdrop-blur-md z-50 hidden flex flex-col items-center justify-center text-white p-6">
+        <div class="text-center max-w-md w-full space-y-4">
+            <!-- Maskot Mama Cula Versi Berbeda (Pose Telunjuk 1 / Pointing) -->
+            <div class="relative inline-block">
+                <div class="absolute inset-0 bg-[#26B1EB]/30 rounded-full blur-2xl"></div>
+                <img src="/images/mama-cula-pointing.png" 
+                     alt="Mama Cula Sampai Jumpa" 
+                     class="h-44 sm:h-52 object-contain mx-auto relative z-10 cheer-animation filter drop-shadow-2xl">
+            </div>
+
+            <!-- Teks Animasi Logout -->
+            <div>
+                <h3 class="text-xl font-extrabold text-white tracking-tight flex items-center justify-center gap-2">
+                    <span>Sampai Jumpa Kembali!</span>
+                    <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
+                </h3>
+                <p class="text-xs text-[#26B1EB] font-medium mt-1">
+                    Mengakhiri sesi penilai &amp; mengamankan data sensor LSF RI...
+                </p>
+            </div>
+
+            <!-- Progress Bar Animasi -->
+            <div class="w-64 mx-auto bg-white/20 h-2 rounded-full overflow-hidden">
+                <div class="bg-gradient-to-r from-[#DC7634] via-[#26B1EB] to-white h-full rounded-full animate-pulse" style="width: 100%"></div>
+            </div>
+
+            <p class="text-[11px] text-slate-300">
+                Lembaga Sensor Film · Menuju Halaman Masuk
+            </p>
+        </div>
+    </div>
+
+    <style>
+        @keyframes cheerBounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-12px) scale(1.03); }
+        }
+        .cheer-animation {
+            animation: cheerBounce 1.8s ease-in-out infinite;
+        }
+    </style>
 
     <script>
         // Inisialisasi ikon Lucide
@@ -170,6 +215,22 @@
         if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleSidebar);
         if (closeSidebarBtn) closeSidebarBtn.addEventListener('click', toggleSidebar);
         if (backdrop) backdrop.addEventListener('click', toggleSidebar);
+
+        // Logika Loading Screen Logout dengan Mama Cula Pointing
+        function triggerLogout() {
+            const logoutOverlay = document.getElementById('logoutOverlay');
+            if (logoutOverlay) {
+                logoutOverlay.classList.remove('hidden');
+            }
+            setTimeout(() => {
+                const form = document.getElementById('logoutForm');
+                if (form) {
+                    form.submit();
+                } else {
+                    window.location.href = "{{ route('login') }}";
+                }
+            }, 1000);
+        }
     </script>
 </body>
 </html>

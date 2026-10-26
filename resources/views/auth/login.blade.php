@@ -88,10 +88,10 @@
                     PORTAL SENSOR MANDIRI
                 </span>
                 <h2 class="text-2xl lg:text-3xl font-extrabold tracking-tight text-white leading-tight">
-                    Budaya Sensor Mandiri, Bangsa Beradab.
+                    Budaya Sensor Mandiri.
                 </h2>
-                <p class="text-xs text-slate-200 mt-2 leading-relaxed max-w-xs">
-                    Memadukan ketelitian nurani verifikator penilai dengan akselerasi artificial intelligence vision.
+                <p class="text-xs text-slate-200 mt-2.5 leading-relaxed max-w-xs font-medium">
+                    Memilah Memilih tontonan sesuai klasifikasi usia
                 </p>
             </div>
 
@@ -102,14 +102,16 @@
             </div>
 
             <!-- ======================================================== -->
-            <!-- S-CURVE FLUID DIVIDER (Lekukan Gelombang Tengah ke Kanan) -->
+            <!-- S-CURVE FLUID DIVIDER (Lekukan Gelombang Mulus & Elegan) -->
             <!-- ======================================================== -->
-            <div class="hidden md:block absolute top-0 -right-1 bottom-0 w-16 pointer-events-none z-20">
-                <svg class="h-full w-full text-white fill-current" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <!-- Lekukan S-Curve halus yang memotong gambar dengan warna -->
+            <div class="hidden md:block absolute top-0 -right-1 bottom-0 w-20 lg:w-28 pointer-events-none z-20">
+                <svg class="h-full w-full text-white fill-current" viewBox="0 0 100 600" preserveAspectRatio="none">
+                    <!-- Kurva S-Curve mulus dengan kontinuitas tangen C2 tanpa sudut tajam -->
                     <path d="M 100,0 
-                             C 40,20 15,35 45,55 
-                             C 75,75 40,90 100,100 
+                             L 65,0 
+                             C 20,120 5,230 25,320 
+                             C 48,410 92,480 72,600 
+                             L 100,600 
                              Z" />
                 </svg>
             </div>
@@ -128,10 +130,7 @@
                     <span class="w-2.5 h-2.5 rounded-full bg-[#C8282E]"></span>
                     <span class="w-2.5 h-2.5 rounded-full bg-[#4B2979]"></span>
                 </div>
-                <div class="flex items-center gap-1 text-[11px] font-mono text-slate-400">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span>Node Gateway: Online</span>
-                </div>
+                <!-- Node Gateway: Online removed as requested -->
             </div>
 
             <!-- Bagian Maskot Mama Cula & Judul CMS -->
